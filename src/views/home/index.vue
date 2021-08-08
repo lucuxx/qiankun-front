@@ -17,6 +17,7 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import SwiperNav from './swiper/index.vue'
+// import CardNav from './articleNav/index.vue'
 
 @Component({ components: { SwiperNav } })
 export default class HomeNav extends Vue {

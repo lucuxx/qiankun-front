@@ -1,5 +1,5 @@
 <template>
-  <section class="header">
+  <!-- <section class="header">
     <transition
       mode="out-in"
       name="custom-classes-transition"
@@ -33,18 +33,54 @@
         </li>
       </ul>
     </transition>
-  </section>
+  </section> -->
+  <div class="container">
+    <el-menu
+      default-active="/home"
+      class="el-menu-vertical"
+      router
+      :collapse="isCollapse"
+    >
+      <el-menu-item index="/home">
+        <i class="el-icon-menu"></i>
+        <span slot="title">首页</span>
+      </el-menu-item>
+      <el-menu-item index="/article">
+        <i class="el-icon-location"></i>
+        <span slot="title">文章分类</span>
+      </el-menu-item>
+      <el-menu-item index="/comment">
+        <i class="el-icon-document"></i>
+        <span slot="title">留言</span>
+      </el-menu-item>
+      <!-- <el-menu-item index="4">
+        <i class="el-icon-setting"></i>
+        <span slot="title">导航四</span>
+      </el-menu-item> -->
+    </el-menu>
+    <div
+      :class="isCollapse ? 'el-menu-btn-left' : 'el-menu-btn-right'"
+      @click="handlerClickMenu"
+    >
+      <i class="el-icon-s-fold"></i>
+    </div>
+  </div>
 </template>
 
-<script>
+<script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 
 @Component
 export default class HeaderNav extends Vue {
   value = null
+  isCollapse: boolean = false
 
   get currentPath() {
     return this.$route.path
+  }
+  handlerClickMenu() {
+    this.isCollapse = !this.isCollapse
+    this.$forceUpdate()
   }
 }
 </script>
@@ -93,5 +129,35 @@ export default class HeaderNav extends Vue {
       }
     }
   }
+}
+.el-menu-vertical {
+  // width: 199px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: calc(100vh);
+  background: #fff;
+}
+.el-menu-vertical:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 400px;
+}
+.el-menu-btn-right {
+  margin-top: calc((100vh / 2) - 30px);
+  width: 14px;
+  line-height: 60px;
+  border-radius: 0 10px 10px 0;
+  background: #bac4cf;
+  font-size: 14px;
+  cursor: pointer;
+}
+.el-menu-btn-left {
+  margin-top: calc((100vh / 2) - 30px);
+  width: 14px;
+  line-height: 60px;
+  border-radius: 0 10px 10px 0;
+  background: #bac4cf;
+  font-size: 14px;
+  cursor: pointer;
 }
 </style>

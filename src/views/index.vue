@@ -13,12 +13,12 @@
                         在vue中使用animated库，首先在入口html文件中引入
                         然后transition标签的属性值以animated+动画样式类；如下
                     -->
-          <transition
+          <!-- <transition
             name="custom-classes-transition"
             enter-active-class="animated fadeInLeft"
-          >
-            <router-view v-if="listShow" />
-          </transition>
+          > -->
+          <router-view v-if="listShow" />
+          <!-- </transition> -->
         </el-col>
         <el-col :span="7">
           <transition
@@ -50,11 +50,11 @@ export default class Entrance extends Vue {
 </script>
 <style lang="less" scoped>
 .entrance {
-  width: 85%;
+  width: 95%;
   margin: 0 auto;
-  padding-top: 80px;
+  padding-top: 20px;
   .container {
-    box-sizing: border-box;
+    // box-sizing: border-box;
     height: 100%;
     width: 100%;
   }

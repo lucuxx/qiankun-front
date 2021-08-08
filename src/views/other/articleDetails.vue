@@ -16,7 +16,7 @@
           >
         </div>
         <div class="card-body">
-          <div v-html="currentArticleInfo.content"></div>
+          <div v-html="currentArticleInfo.content" class="markdown-body"></div>
         </div>
         <div class="btn-body" v-show="!loading">
           <el-button
@@ -31,7 +31,7 @@
             id="copy"
             style="outline: none;border: none;width: 0;height: 0;resize:none"
           >
-http://skyclub.cloud/details?id={{ articleId }}</textarea
+`http://skyclub.cloud/details?id=${articleId}`</textarea
           >
         </div>
         <div class="next-body">
@@ -118,6 +118,12 @@ export default class articleDetails extends Vue {
       this.show = true
     })
     await this.getArticleDetails()
+    const link = document.createElement('link')
+    link.type = 'text/css'
+    link.rel = 'stylesheet'
+    link.href =
+      'https://cdn.bootcss.com/github-markdown-css/2.10.0/github-markdown.min.css'
+    document.head.appendChild(link)
   }
 
   // 查看上下篇文章

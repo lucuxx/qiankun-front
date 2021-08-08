@@ -24,11 +24,10 @@
                 item.fabulousNum
               }}</span
             >
-            <span class="desc_item"
+            <!-- <span class="desc_item"
               ><img class="img" src="../assets/images/comment.png" alt="" />{{
                 _.size(item.commentData)
-              }}</span
-            >
+              }}</span> -->
             <span class="desc_item"
               ><img class="img" src="../assets/images/time.png" alt="" />{{
                 $util.checkTime(item.updateTime)

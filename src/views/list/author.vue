@@ -11,7 +11,7 @@
 
 <script>
 import { Vue, Component } from 'vue-property-decorator'
-import avatar from '@/assets/images/avatar.jpg'
+import avatar from '@/assets/images/avatar.png'
 
 @Component
 export default class AuthorNav extends Vue {

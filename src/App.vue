@@ -1,16 +1,31 @@
 <template>
   <div id="app">
-    <header-nav class="header" />
-    <router-view style="padding-bottom: 100px" />
-    <el-footer
+    <!-- <el-container> -->
+    <!-- <el-header style="background:gray;"></el-header> -->
+    <!-- <el-container> -->
+    <div class="container">
+      <!-- <el-aside class="aside" style="width:200px;"> -->
+      <div class="aside">
+        <header-nav />
+      </div>
+      <!-- </el-aside> -->
+      <div class="main">
+        <router-view style="padding-bottom: 20px" />
+      </div>
+    </div>
+    <!-- <el-main> -->
+    <!-- </el-main> -->
+    <!-- </el-container> -->
+    <!-- </el-container> -->
+
+    <!-- <el-footer
       style="background-color: #7387fe;text-align: center;color: white;line-height: 60px"
       >Copyright© 2019-2020 lucux 版权所有
       <a
         style="color:#fff;text-decoration:none;"
         href="http://www.beian.miit.gov.cn"
         >粤ICP备20037247号-1</a
-      ></el-footer
-    >
+      ></el-footer> -->
   </div>
 </template>
 
@@ -28,22 +43,56 @@ export default class App extends Vue {}
 html,
 body,
 #app {
-  width: 100%;
-  min-height: 1200px;
-  margin: 0 auto;
-  position: relative;
-  background-color: whitesmoke;
-  .header {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
+  margin: 0;
+  height: calc(100vh - 50px);
+
+  /* overflow: auto; */
+}
+// html,
+// body,
+// #app {
+//   height: 100%;
+// width: 100%;
+// min-height: 1200px;
+// margin: 0 auto;
+// position: relative;
+// background-color: whitesmoke;
+// .header {
+//   width: 100%;
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+// }
+// .el-footer {
+//   width: 100%;
+//   position: absolute;
+//   left: 0;
+//   bottom: 0;
+// }
+// .aside {
+//   height: calc(100vh);
+//   background: #fff;
+//   width: 100px;
+//   position: sticky;
+//   top: 0;
+//   left: 0;
+// }
+// }
+.container {
+  height: calc(100vh - 50px);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  .aside {
+    position: sticky;
   }
-  .el-footer {
-    width: 100%;
-    position: absolute;
-    left: 0;
-    bottom: 0;
+  .main {
+    height: 100%;
+    flex: 1;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: flex-start;
+    overflow: auto;
   }
 }
 </style>
